@@ -1,0 +1,80 @@
+template <class CLAVE>
+
+class TablaHash
+{
+    private:
+        int nCeldas;
+        int nBloques;
+
+        Celda<CLAVE> *vCelda;
+
+        fDispersion<CLAVE> *h; //Se llama con h ->
+        fExplorar<CLAVE> *g;
+
+    public:
+        TablaHash(int celdas, int bloques, int constante);
+        ~TablaHash();
+
+        bool buscar(CLAVE) const;
+        bool insertar(CLAVE) const;
+
+
+};
+
+template <class CLAVE>
+
+class Celda
+{
+    private:
+        int nBloques;
+        CLAVE *V;
+
+    public:
+        Celda(int);
+        ~Celda();   //Hacer el delete
+
+        bool buscar(clave);     //Posibilidad de devolver la posicion.
+        bool insertar(clave);
+        bool llena();       //Para saber si la celda esta llena.
+}
+
+template <class Clave>
+
+class fDispersion
+{
+    private:
+        int nCeldas;
+
+    public:
+
+        fDispersion(int nCeldas);
+
+        virtual int fDisp(CLAVE) = 0;
+        static fDispersion<Clave> *create(int a);
+        int operator() (CLAVE c); //Llama a fDispersion, return fDispersion(clave);
+}
+
+template<class Clave>
+
+class fExplorar
+{
+    //Si una celda esta llena, buscar otra posicion.
+}
+
+
+
+
+//Contador
+
+    c.start();
+    buscar();
+    c.end(); //nº de comparaciones de clave.
+
+class DNI
+{
+    private:
+        static contador;
+        unsigned int();
+        operator== ();
+        operator<= ();
+}
